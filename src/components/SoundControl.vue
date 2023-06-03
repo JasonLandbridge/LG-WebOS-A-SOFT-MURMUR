@@ -9,8 +9,7 @@
                 :max="10"
                 snap
                 :step="0.5"
-                color="red"
-                label-always
+                color="white"
                 @update:model-value="mainStore.setSoundVolume(sound.type, $event / 10)" />
         </q-card-section>
     </q-card>

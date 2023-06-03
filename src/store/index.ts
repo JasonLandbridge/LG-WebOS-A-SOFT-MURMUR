@@ -67,10 +67,10 @@ export const useMainStore = defineStore('main', {
         setup() {
             this.sounds.forEach((sound) => {
                 sound.audio = new Audio(`/sounds/${sound.type}/main-${sound.type}.mp3`);
-                sound.audio.volume = 0;
-                sound.audio.autoplay = true;
-                sound.audio.loop = true;
                 sound.audio.defaultMuted = true;
+                // sound.audio.autoplay = true;
+                sound.audio.loop = true;
+                sound.audio.volume = sound.volume;
             });
         },
         toggleIsPlaying() {
@@ -78,9 +78,10 @@ export const useMainStore = defineStore('main', {
             this.sounds.forEach((sound) => {
                 if (sound.audio) {
                     if (this.isPlaying) {
-                        sound.audio.pause();
-                    } else {
                         sound.audio.play();
+                        sound.audio.muted = false;
+                    } else {
+                        sound.audio.pause();
                     }
                 }
             });

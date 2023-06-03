@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     modules: [
         'nuxt-quasar-ui',
         '@vueuse/nuxt',
-        '@vueuse/sound/nuxt',
+        '@pinia/nuxt',
     ],
     quasar: {
         iconSet: 'mdi-v7',

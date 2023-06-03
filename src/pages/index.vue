@@ -3,6 +3,9 @@
     <h1>
       A SOFT MURMUR
     </h1>
+    <div>
+      <QBtn></QBtn>
+    </div>
     <SoundControl v-for="(sound, index) in sounds" :key="index" :sound="sound"/>
   </div>
 </template>

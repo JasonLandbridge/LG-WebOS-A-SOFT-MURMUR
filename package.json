@@ -10,10 +10,12 @@
   },
   "devDependencies": {
     "@types/node": "^18",
-    "nuxt": "^3.5.2"
+    "nuxt": "^3.5.2",
+    "prettier": "^2.8.8",
+    "sass": "^1.62.1"
   },
   "dependencies": {
-    "nuxt-quasar-ui": "^1.7.4",
-    "@quasar/extras": "^1.16.4"
+    "@quasar/extras": "^1.16.4",
+    "nuxt-quasar-ui": "^1.7.4"
   }
 }

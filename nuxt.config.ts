@@ -8,5 +8,9 @@ export default defineNuxtConfig({
     ],
     quasar: {
         iconSet: 'mdi-v7',
-    }
+    },
+    /*
+     ** Global CSS: https://nuxt.com/docs/api/configuration/nuxt-config#css
+     */
+    css: ['@/assets/style/style.scss'],
 })

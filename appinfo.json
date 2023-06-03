@@ -1,0 +1,10 @@
+{
+  "id": "lg-webos-a-soft-murmur",
+  "version": "0.0.1",
+  "vendor": "JasonLandbridge",
+  "type": "web",
+  "main": "index.html",
+  "title": "A Soft Murmur",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png"
+}

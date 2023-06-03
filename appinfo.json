@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "vendor": "JasonLandbridge",
   "type": "web",
-  "main": "index.html",
+  "main": ".output/public/index.html",
   "title": "A Soft Murmur",
   "icon": "icon.png",
   "largeIcon": "largeIcon.png"

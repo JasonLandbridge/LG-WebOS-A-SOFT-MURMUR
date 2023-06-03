@@ -1,14 +1,10 @@
-import {defineNuxtConfig} from 'nuxt/config';
-import {fileURLToPath} from "url";
+import { defineNuxtConfig } from 'nuxt/config';
+import { fileURLToPath } from 'url';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     srcDir: 'src',
-    modules: [
-        'nuxt-quasar-ui',
-        '@vueuse/nuxt',
-        '@pinia/nuxt',
-    ],
+    modules: ['nuxt-quasar-ui', '@vueuse/nuxt', '@pinia/nuxt'],
     quasar: {
         iconSet: 'mdi-v7',
     },
@@ -18,7 +14,7 @@ export default defineNuxtConfig({
     sound: {
         sounds: {
             scan: true,
-        }
+        },
     },
     /*
      ** Global CSS: https://nuxt.com/docs/api/configuration/nuxt-config#css
@@ -29,4 +25,4 @@ export default defineNuxtConfig({
         '@img': fileURLToPath(new URL('./src/assets/img/', import.meta.url)),
         '@sounds': fileURLToPath(new URL('./src/assets/sounds/', import.meta.url)),
     },
-})
+});

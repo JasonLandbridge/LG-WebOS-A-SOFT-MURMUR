@@ -1,13 +1,13 @@
-import {defineStore} from 'pinia'
+import { defineStore } from 'pinia';
 
 export const useMainStore = defineStore('main', {
     state: () => ({
-        counter: 0,
+        isPlaying: false,
+        mainVolume: 0,
     }),
     actions: {
-        increment() {
-            // `this` is the store instance
-            this.counter++
+        toggleIsPlaying() {
+            this.isPlaying = !this.isPlaying;
         },
     },
-})
+});

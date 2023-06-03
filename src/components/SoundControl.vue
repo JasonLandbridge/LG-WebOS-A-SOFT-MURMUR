@@ -1,53 +1,30 @@
 <template>
     <q-card class="sound-control">
         <q-card-section>
-            <SoundTypeImage :opacity="volume / 10" />
+            <SoundTypeImage :opacity="mainStore.getSoundVolume(sound.type)" />
             <span class="sound-title">{{ sound.title }}</span>
             <q-slider
-                v-model="volume"
+                :model-value="mainStore.getSoundVolume(sound.type) * 10"
                 :min="0"
                 :max="10"
                 snap
-                :step="1"
+                :step="0.5"
                 color="red"
-                @update:model-value="onVolumeChange"
-                @click="onClick" />
+                label-always
+                @update:model-value="mainStore.setSoundVolume(sound.type, $event / 10)" />
         </q-card-section>
     </q-card>
 </template>
 
 <script setup lang="ts">
-import Log from 'consola';
 import ISoundConfig from '~/types/ISoundConfig';
-import { get, set } from '@vueuse/core';
+import { useMainStore } from '~/store';
+
+const mainStore = useMainStore();
 
 const props = defineProps<{
     sound: ISoundConfig;
 }>();
-
-const volume = ref(0);
-const audio = ref<HTMLAudioElement>();
-
-function onClick() {
-    get(audio)?.play();
-}
-
-function onVolumeChange(volume: number) {
-    Log.debug('volume', volume);
-    if (get(audio) === undefined) {
-        return;
-    }
-    if (audio.value) {
-        audio.value.volume = volume / 10;
-    }
-}
-
-onMounted(() => {
-    set(audio, new Audio('sounds/rain/main-rain.mp3') ?? null);
-    if (audio.value) {
-        audio.value.loop = true;
-    }
-});
 </script>
 <style lang="scss">
 .sound-control {

@@ -1,7 +1,7 @@
 <template>
     <q-card class="sound-control">
         <q-card-section>
-            <SoundTypeImage :opacity="mainStore.getSoundVolume(sound.type)" />
+            <SoundTypeImage :sound="sound" />
             <span class="sound-title">{{ sound.title }}</span>
             <q-slider
                 :model-value="mainStore.getSoundVolume(sound.type) * 10"

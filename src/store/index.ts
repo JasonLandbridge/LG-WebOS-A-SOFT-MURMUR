@@ -14,42 +14,52 @@ export const useMainStore = defineStore('main', {
             {
                 title: 'Rain',
                 type: SoundType.Rain,
+                volume: 0,
             },
             {
                 title: 'Thunder',
                 type: SoundType.Thunder,
+                volume: 0,
             },
             {
                 title: 'Waves',
                 type: SoundType.Waves,
+                volume: 0,
             },
             {
                 title: 'Wind',
                 type: SoundType.Wind,
+                volume: 0,
             },
             {
                 title: 'Fire',
                 type: SoundType.Fire,
+                volume: 0,
             },
             {
                 title: 'Birds',
                 type: SoundType.Birds,
+                volume: 0,
             },
             {
                 title: 'Crickets',
                 type: SoundType.Crickets,
+                volume: 0,
             },
             {
                 title: 'Coffee shop',
                 type: SoundType.People,
+                volume: 0,
             },
             {
                 title: 'Singing Bowl',
                 type: SoundType.SingingBowl,
+                volume: 0,
             },
             {
                 title: 'White noise',
                 type: SoundType.WhiteNoise,
+                volume: 0,
             },
         ],
     }),
@@ -83,6 +93,7 @@ export const useMainStore = defineStore('main', {
             if (index > -1 && this.sounds[index].audio) {
                 // @ts-ignore
                 this.sounds[index].audio.volume = volume >= 0.1 ? volume : 0;
+                this.sounds[index].volume = volume >= 0.1 ? volume : 0;
             }
         },
     },
@@ -91,7 +102,7 @@ export const useMainStore = defineStore('main', {
             return (type: SoundType) => {
                 const index = state.sounds.findIndex((x) => x.type === type);
                 if (index > -1) {
-                    return state.sounds[index].audio?.volume ?? 0;
+                    return state.sounds[index].volume ?? 0;
                 }
                 return 0;
             };

@@ -1,13 +1,17 @@
 <template>
     <div class="sound-type-image">
-        <div class="img img-outline" />
-        <div class="img img-fill" :style="{ opacity: opacity }" />
+        <div :class="['img', `img-outline-${sound.type}`]" />
+        <div :class="['img', `img-fill-${sound.type}`]" :style="{ opacity: mainStore.getSoundVolume(sound.type) }" />
     </div>
 </template>
 
 <script setup lang="ts">
+import ISoundConfig from '~/types/ISoundConfig';
+import { useMainStore } from '~/store';
+const mainStore = useMainStore();
+
 defineProps<{
-    opacity: number;
+    sound: ISoundConfig;
 }>();
 </script>
 <style lang="scss">
@@ -23,16 +27,67 @@ defineProps<{
         right: 0;
         bottom: 0;
         background-repeat: no-repeat;
-    }
 
-    .img-outline {
-        background-image: url('~/assets/img/sound-type-img-bg.png');
-        background-position: -100px -200px;
-    }
-
-    .img-fill {
-        background-image: url('~/assets/img/sound-type-img-bg.png');
-        background-position: -200px -300px;
+        &.img-fill-birds {
+            background-image: url('~/assets/img/sounds/birds-fill.png');
+        }
+        &.img-outline-birds {
+            background-image: url('~/assets/img/sounds/birds-outline.png');
+        }
+        &.img-fill-crickets {
+            background-image: url('~/assets/img/sounds/crickets-fill.png');
+        }
+        &.img-outline-crickets {
+            background-image: url('~/assets/img/sounds/crickets-outline.png');
+        }
+        &.img-fill-fire {
+            background-image: url('~/assets/img/sounds/fire-fill.png');
+        }
+        &.img-outline-fire {
+            background-image: url('~/assets/img/sounds/fire-outline.png');
+        }
+        &.img-fill-people {
+            background-image: url('~/assets/img/sounds/people-fill.png');
+        }
+        &.img-outline-people {
+            background-image: url('~/assets/img/sounds/people-outline.png');
+        }
+        &.img-fill-rain {
+            background-image: url('~/assets/img/sounds/rain-fill.png');
+        }
+        &.img-outline-rain {
+            background-image: url('~/assets/img/sounds/rain-outline.png');
+        }
+        &.img-fill-sbowl {
+            background-image: url('~/assets/img/sounds/sbowl-fill.png');
+        }
+        &.img-outline-sbowl {
+            background-image: url('~/assets/img/sounds/sbowl-outline.png');
+        }
+        &.img-fill-thunder {
+            background-image: url('~/assets/img/sounds/thunder-fill.png');
+        }
+        &.img-outline-thunder {
+            background-image: url('~/assets/img/sounds/thunder-outline.png');
+        }
+        &.img-fill-waves {
+            background-image: url('~/assets/img/sounds/waves-fill.png');
+        }
+        &.img-outline-waves {
+            background-image: url('~/assets/img/sounds/waves-outline.png');
+        }
+        &.img-fill-whitenoise {
+            background-image: url('~/assets/img/sounds/whitenoise-fill.png');
+        }
+        &.img-outline-whitenoise {
+            background-image: url('~/assets/img/sounds/whitenoise-outline.png');
+        }
+        &.img-fill-wind {
+            background-image: url('~/assets/img/sounds/wind-fill.png');
+        }
+        &.img-outline-wind {
+            background-image: url('~/assets/img/sounds/wind-outline.png');
+        }
     }
 }
 </style>

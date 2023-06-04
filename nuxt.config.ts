@@ -21,6 +21,11 @@ export default defineNuxtConfig({
      ** Global CSS: https://nuxt.com/docs/api/configuration/nuxt-config#css
      */
     css: ['@/assets/style/style.scss'],
+    app: {
+        head: {
+            script: [{ src: 'WebOS-1.2.4/webOSTV.js' }, { src: 'WebOS-1.2.4/webOSTV-dev.js' }],
+        },
+    },
     alias: {
         // Doc: https://nuxt.com/docs/api/configuration/nuxt-config#alias
         '@img': fileURLToPath(new URL('./src/assets/img/', import.meta.url)),
